@@ -16,7 +16,6 @@ RUN dnf -y install \
         iproute \
         net-tools \
         libvirt-client \
-        docker \
         sudo \
         gcc \
         strace \
