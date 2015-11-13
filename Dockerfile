@@ -12,9 +12,21 @@ RUN dnf -y install \
         gnupg \
         tar \
         procps-ng \
+        iputils \
+        iproute \
+        net-tools \
+        sudo \
+        gcc \
+        strace \
+        tcpdump \
+        nc \
+        wget \
+        curl \
 	git-email \
         git-review
 
-RUN adduser imain
-ADD config.tar.gz.gpg /config.tar.gz.gpg
-CMD gpg --decrypt /config.tar.gz.gpg > /config.tar.gz && tar fxvz config.tar.gz && su - imain
+ADD private_config.tar.gz.gpg /private_config.tar.gz.gpg
+ADD configure.sh /configure.sh
+RUN /configure.sh
+ADD public_config.tar.gz /
+CMD gpg --decrypt /private_config.tar.gz.gpg > /private_config.tar.gz && tar fxvz private_config.tar.gz && su - imain
