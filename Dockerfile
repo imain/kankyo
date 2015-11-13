@@ -15,6 +15,8 @@ RUN dnf -y install \
         iputils \
         iproute \
         net-tools \
+        libvirt-client \
+        docker \
         sudo \
         gcc \
         strace \
