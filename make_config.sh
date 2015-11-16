@@ -9,15 +9,15 @@ tar fchvz public_config.tar.gz \
     ~/.vimshrc \
     ~/.vim \
     ~/.tmux.conf \
-    ~/.gitconfig \
     ~/.bash_profile \
     ~/.bashrc
 
 rm -f private_config.tar.gz
 tar fchvz private_config.tar.gz \
-    ~/.ssh
+    ~/.ssh \
+    ~/.gitconfig
 
-rm private_config.tar.gz.gpg
+rm -f private_config.tar.gz.gpg
 gpg --symmetric --cipher-algo aes256 private_config.tar.gz
 
 # Just for cleanup so its not lying around.
