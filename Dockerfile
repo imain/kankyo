@@ -7,10 +7,14 @@ RUN dnf -y update
 # Install base packages
 RUN dnf -y install \
 	vim \
+	tig \
+	tmate \
 	tmux \
 	emacs \
         gnupg \
         tar \
+        zsh \
+        tig \
         procps-ng \
         iputils \
         iproute \
