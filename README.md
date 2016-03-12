@@ -1,7 +1,7 @@
 Kankyo
 ======
 
-Kankyo is a Japanese word meaning 'environment'.  I'm sure I've totally misused that here and I apologize but I like Japanese words so there you have it.  This is a customizable container with a work and development environment in it.  It can be tailored to your needs.
+Kankyo is a Japanese word meaning 'environment'.  This is a customizable container with a work and development environment in it that can be tailored to your needs.
 
 I work on a lot of different hosts and end up having to configure various bits of software to work efficiently - especially vim and git.  There are other ways to solve this problem but it seems to me a container would allow a complete environment plus config to be usable across systems very easily.
 
