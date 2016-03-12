@@ -2,5 +2,5 @@
 
 ./make_config.sh
 
-sudo docker build -t imain/kankyo:v2 .
+sudo docker build -t kankyo:v2 .
 
