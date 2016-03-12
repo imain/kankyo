@@ -40,5 +40,8 @@ Starting
 
 The command line to run the container is a bit tricky as we're mapping in a lot of directories to allow for the use of various programs as described above.  To start the container just use:
 
-./run.sh
+./run.sh <dockerhub username>
 
+If you want to run it all in one command on another machine from the hub use:
+
+bash -c "`curl https://raw.githubusercontent.com/imain/kankyo/master/run.sh`" -c <dockerhub username>
