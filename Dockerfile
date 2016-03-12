@@ -4,31 +4,9 @@ MAINTAINER Ian Main <imain@redhat.com>
 # Update packages
 RUN dnf -y update
 
-# Install base packages
-RUN dnf -y install \
-	vim \
-	tig \
-	tmate \
-	tmux \
-	emacs \
-        gnupg \
-        tar \
-        zsh \
-        tig \
-        procps-ng \
-        iputils \
-        iproute \
-        net-tools \
-        libvirt-client \
-        sudo \
-        gcc \
-        strace \
-        tcpdump \
-        nc \
-        wget \
-        curl \
-	git-email \
-        git-review
+# Install extra packages
+ADD rpmlist.conf /rpmlist.conf
+RUN dnf -y install `cat /rpmlist.conf`
 
 ADD private_config.tar.gz.gpg /private_config.tar.gz.gpg
 ADD configure.sh /configure.sh

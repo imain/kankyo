@@ -1,25 +1,22 @@
 #!/bin/bash
 
 rm -f public_config.tar.gz
-tar fchvz public_config.tar.gz \
-    ~/.zshrc \
-    ~/.zshenv \
-    ~/.vimrc \
-    ~/.vimrc.local \
-    ~/.vimshrc \
-    ~/.vim \
-    ~/.tmux.conf \
-    ~/.bash_profile \
-    ~/.bashrc
+
+for f in `cat public_filelist.conf`; do
+    PUB_FILES+="`eval echo "$f"` "
+done
+tar fchvz public_config.tar.gz $PUB_FILES
+
+rm -f private_config.tar.gz.gpg
 
 rm -f private_config.tar.gz
-tar fchvz private_config.tar.gz \
-    ~/.ssh \
-    ~/.gitconfig
+for f in `cat private_filelist.conf`; do
+    PRIV_FILES+="`eval echo "$f"` "
+done
+tar fchvz private_config.tar.gz $PRIV_FILES
 
 rm -f private_config.tar.gz.gpg
 gpg --symmetric --cipher-algo aes256 private_config.tar.gz
 
-# Just for cleanup so its not lying around.
+# Clean up so its not lying around.
 rm -f private_config.tar.gz
-
