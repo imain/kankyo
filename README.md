@@ -24,11 +24,11 @@ You can also use docker and virsh from within the container to connect to the ho
 Configuration
 =============
 
-rpmlist.conf contains a list of RPMs that you want installed in your container for use.  I have an example minimal set that I am currently using.
+* rpmlist.conf - contains a list of RPMs that you want installed in your container for use.  I have an example minimal set that I am currently using.
 
-public_filelist.conf is a list of configuration files from your home directory that you want copied into the container.  These will be visible to anyone who can download the container.
+* public_filelist.conf - a list of configuration files from your home directory that you want copied into the container.  These will be visible to anyone who can download the container.
 
-private_filelist.conf is a list of private configuration files that will be copied into the container.  These ones are encrypted using gpg and require a passphrase to untar when you log into the container.  I currently only have my ssh keys and git config in this list.
+* private_filelist.conf - a list of private configuration files that will be copied into the container.  These ones are encrypted using gpg and require a passphrase to untar when you log into the container.  I currently only have my ssh keys and git config in this list.
 
 Building
 ========
@@ -40,8 +40,13 @@ Starting
 
 The command line to run the container is a bit tricky as we're mapping in a lot of directories to allow for the use of various programs as described above.  To start the container just use:
 
+```
 ./run.sh <dockerhub username>
+```
 
 If you want to run it all in one command on another machine from the hub use:
 
+```
 bash -c "`curl https://raw.githubusercontent.com/imain/kankyo/master/run.sh`" -c <dockerhub username>
+```
+
