@@ -41,12 +41,14 @@ Starting
 The command line to run the container is a bit tricky as we're mapping in a lot of directories to allow for the use of various programs as described above.  To start the container just use:
 
 ```
-./run.sh <dockerhub username>
+./run.sh [dockerhub username]
 ```
+
+If the dockerhub username is not specified it will assume it's in the local registry.
 
 If you want to run it all in one command on another machine from the hub use:
 
 ```
-bash -c "`curl https://raw.githubusercontent.com/imain/kankyo/master/run.sh`" -c <dockerhub username>
+bash -c "`curl https://raw.githubusercontent.com/imain/kankyo/master/run.sh`" [-c <dockerhub username>]
 ```
 
